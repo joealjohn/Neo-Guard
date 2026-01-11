@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="images/dashboard.png" alt="NeoGuard Dashboard" width="800"/>
-</p>
-
 <h1 align="center">🛡️ NeoGuard</h1>
 
 <p align="center">
@@ -170,6 +166,10 @@ neo:
 2. **Configure** - Set main package, Java version, and transformers
 3. **Obfuscate** - Click the Obfuscate button
 4. **Download** - Get your protected JAR from the history
+
+<p align="center">
+  <img width="1919" height="958" alt="image" src="https://github.com/user-attachments/assets/4ca29c60-ac52-43a6-ba89-a69018a34ff4" />
+</p>
 
 ### Available Transformers
 
