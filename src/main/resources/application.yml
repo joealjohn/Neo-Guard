@@ -1,0 +1,39 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: NeoGuard
+  
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:100MB}
+      max-request-size: ${MAX_REQUEST_SIZE:100MB}
+  
+  datasource:
+    url: jdbc:sqlite:${DATA_DIR:./data}/neoguard.db
+    driver-class-name: org.sqlite.JDBC
+
+# Logging - Clean output
+logging:
+  level:
+    root: WARN
+    dev.neoobfuscator: INFO
+    org.springframework.web: WARN
+    org.apache.tomcat: WARN
+    com.zaxxer.hikari: WARN
+  pattern:
+    console: "%d{HH:mm:ss} %clr(%-5level) %msg%n"
+
+# Application Settings
+neo:
+  upload-dir: ${UPLOAD_DIR:./uploads}
+  output-dir: ${OUTPUT_DIR:./output}
+  config-dir: ${CONFIG_DIR:./configs}
+  skidfuscator-jar: ${SKIDFUSCATOR_JAR:./libs/skidfuscator.jar}
+  
+  # Async processing settings
+  async:
+    core-pool-size: ${ASYNC_CORE_POOL:2}
+    max-pool-size: ${ASYNC_MAX_POOL:4}
+    queue-capacity: ${ASYNC_QUEUE_SIZE:100}

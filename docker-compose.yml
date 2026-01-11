@@ -1,0 +1,62 @@
+# ================================
+# NeoGuard - Docker Compose
+# ================================
+# Production deployment configuration
+
+version: '3.8'
+
+services:
+  neoguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: neoguard:latest
+    container_name: neoguard
+    restart: unless-stopped
+    
+    # Environment configuration
+    environment:
+      - SERVER_PORT=8080
+      - MAX_MEMORY=2G
+      - TZ=UTC
+    
+    # Port mapping
+    ports:
+      - "8080:8080"
+    
+    # Persistent storage
+    volumes:
+      - neoguard-data:/app/data
+      - neoguard-uploads:/app/uploads
+      - neoguard-output:/app/output
+      - neoguard-configs:/app/configs
+      - neoguard-mappings:/app/mappings
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 3G
+        reservations:
+          memory: 1G
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+# Named volumes for data persistence
+volumes:
+  neoguard-data:
+    driver: local
+  neoguard-uploads:
+    driver: local
+  neoguard-output:
+    driver: local
+  neoguard-configs:
+    driver: local
+  neoguard-mappings:
+    driver: local

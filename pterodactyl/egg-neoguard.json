@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE ACTIVE PER PTERODACTYL PANEL - https://pterodactyl.io",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-01-11T01:48:00+05:30",
+    "name": "NeoGuard",
+    "author": "joeal@example.com",
+    "description": "NeoGuard - Java Obfuscation Web Application powered by Skidfuscator. Upload JAR files and obfuscate them with powerful transformers.",
+    "features": null,
+    "docker_images": {
+        "Java 17": "ghcr.io/pterodactyl/yolks:java_17"
+    },
+    "file_denylist": [],
+    "startup": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar neoguard.jar --server.port={{SERVER_PORT}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Server started successfully\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/bash\n\napt update\napt install -y curl wget unzip\n\ncd /mnt/server\n\n# Download NeoGuard JAR (replace with actual download URL)\necho \"Downloading NeoGuard...\"\nif [ -n \"${NEOGUARD_VERSION}\" ]; then\n    DOWNLOAD_URL=\"https://github.com/yourusername/neoguard/releases/download/${NEOGUARD_VERSION}/neo-guard-${NEOGUARD_VERSION}.jar\"\nelse\n    # Default to latest release\n    DOWNLOAD_URL=\"https://github.com/yourusername/neoguard/releases/latest/download/neo-guard-1.0.0.jar\"\nfi\n\ncurl -Lo neoguard.jar \"${DOWNLOAD_URL}\" || wget -O neoguard.jar \"${DOWNLOAD_URL}\"\n\n# Create required directories\nmkdir -p data uploads output configs libs mappings\n\n# Download Skidfuscator\necho \"Downloading Skidfuscator...\"\ncurl -Lo libs/skidfuscator.jar \"https://github.com/skidfuscatordev/skidfuscator-java-obfuscator/releases/latest/download/skidfuscator.jar\" || wget -O libs/skidfuscator.jar \"https://github.com/skidfuscatordev/skidfuscator-java-obfuscator/releases/latest/download/skidfuscator.jar\"\n\necho \"Installation complete!\"",
+            "container": "ghcr.io/pterodactyl/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Server Port",
+            "description": "The port that NeoGuard will run on.",
+            "env_variable": "SERVER_PORT",
+            "default_value": "8080",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1024,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "NeoGuard Version",
+            "description": "Version of NeoGuard to install. Leave empty for latest.",
+            "env_variable": "NEOGUARD_VERSION",
+            "default_value": "1.0.0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}

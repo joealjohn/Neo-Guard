@@ -1,0 +1,47 @@
+# NeoGuard Docker Ignore
+# =========================
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Build artifacts (we copy the JAR explicitly)
+target/*.jar.original
+
+# Git
+.git/
+.gitignore
+
+# Documentation (not needed in runtime)
+*.md
+!README.md
+
+# Test files
+src/test/
+
+# Local development files
+*.log
+*.db
+build_output.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp directories (these are created fresh in container)
+uploads/*
+output/*
+configs/*
+data/*
+mappings/*
+mappings-cloud/*
+
+# Keep directory structure but ignore contents
+!uploads/.gitkeep
+!output/.gitkeep
+!configs/.gitkeep
+!data/.gitkeep

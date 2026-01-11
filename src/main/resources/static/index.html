@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NeoGuard - Professional Java Obfuscation Service powered by Skidfuscator">
+    <title>NeoGuard | Java Obfuscation</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                </svg>
+                <span class="logo-text">NeoGuard</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="home">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-page="history">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span>History</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+                <span>Settings</span>
+            </a>
+            <a href="#" class="nav-item" data-page="docs">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                </svg>
+                <span>Docs</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="version-info">
+                <span>NeoGuard v1.0.0</span>
+                <span class="powered-by">Powered by Skidfuscator</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <button class="menu-toggle" id="menuToggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+            <h1 class="page-title" id="pageTitle">Home</h1>
+            <div class="header-actions">
+                <div class="status-indicator" id="serverStatus">
+                    <span class="status-dot"></span>
+                    <span>Connected</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Home Page -->
+        <section class="page active" id="homePage">
+            <!-- Upload Section -->
+            <div class="card upload-card">
+                <div class="card-header">
+                    <h2>Upload File to Obfuscate</h2>
+                </div>
+                <div class="card-body">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                        </div>
+                        <div class="upload-text">
+                            <p class="upload-main">Drop your .jar file here</p>
+                            <p class="upload-sub">or click to browse</p>
+                        </div>
+                        <input type="file" id="fileInput" accept=".jar" hidden>
+                    </div>
+                    <p class="upload-info">Supported file types: .jar</p>
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="card history-card">
+                <div class="card-header">
+                    <h2>Obfuscation History</h2>
+                    <button class="btn btn-ghost" id="refreshHistory">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10" />
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>File Name</th>
+                                    <th>Status</th>
+                                    <th>Size</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTable">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                        <div class="empty-state" id="emptyHistory">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                            <p>No obfuscation history yet</p>
+                            <span>Upload a file to get started</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Page (Full) -->
+        <section class="page" id="historyPage">
+            <div class="card">
+                <div class="card-header">
+                    <h2>All Obfuscation History</h2>
+                    <button class="btn btn-ghost" id="refreshHistoryFull">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10" />
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>File Name</th>
+                                    <th>Status</th>
+                                    <th>Size</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fullHistoryTable">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Page -->
+        <section class="page" id="settingsPage">
+            <div class="settings-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Default Obfuscation Settings</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Default Java Version</label>
+                            <select id="defaultJavaVersion" class="form-select">
+                                <option value="8">Java 8 (1.8)</option>
+                                <option value="11">Java 11</option>
+                                <option value="17" selected>Java 17</option>
+                                <option value="21">Java 21</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Default Main Package</label>
+                            <input type="text" id="defaultMainPackage" class="form-input"
+                                placeholder="com.example.yourproject">
+                        </div>
+                        <button class="btn btn-primary" id="saveDefaults">Save Defaults</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Server Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-row">
+                            <span class="info-label">Version</span>
+                            <span class="info-value">1.0.0</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Obfuscator</span>
+                            <span class="info-value">Skidfuscator 2.0.11</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Status</span>
+                            <span class="info-value status-online">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Docs Page -->
+        <section class="page" id="docsPage">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Documentation</h2>
+                </div>
+                <div class="card-body docs-content">
+                    <h3>Getting Started</h3>
+                    <p>NeoGuard is a web-based Java obfuscation service powered by Skidfuscator.</p>
+
+                    <h4>How to Obfuscate</h4>
+                    <ol>
+                        <li>Upload your <code>.jar</code> file using the upload area on the Home page.</li>
+                        <li>Configure your obfuscation settings (main package, transformers, Java version).</li>
+                        <li>Click "Obfuscate" to start the process.</li>
+                        <li>Wait for the obfuscation to complete.</li>
+                        <li>Download your obfuscated file.</li>
+                    </ol>
+
+                    <h4>Available Transformers</h4>
+                    <ul>
+                        <li><strong>String Encryption</strong> - Encrypts all string literals</li>
+                        <li><strong>Number Encryption</strong> - Encrypts numeric constants</li>
+                        <li><strong>Flow Condition</strong> - Adds opaque predicates</li>
+                        <li><strong>Flow Exception</strong> - Uses exception handling for obfuscation</li>
+                        <li><strong>Flow Range</strong> - Range-based flow obfuscation</li>
+                        <li><strong>Flow Switch</strong> - Switch-based flow flattening</li>
+                    </ul>
+
+                    <h4>Tips</h4>
+                    <ul>
+                        <li>Always specify your main package to avoid obfuscating dependencies.</li>
+                        <li>Test your obfuscated JAR before deploying to production.</li>
+                        <li>Keep a backup of your original JAR file.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- File Details Modal -->
+    <div class="modal" id="fileModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>File Details</h2>
+                <button class="modal-close" id="closeModal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- File Info -->
+                <div class="file-info">
+                    <div class="file-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                    </div>
+                    <div class="file-details">
+                        <div class="detail-row">
+                            <span class="detail-label">File Name:</span>
+                            <span class="detail-value" id="modalFileName">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">File Type:</span>
+                            <span class="detail-value">.jar</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">File Size:</span>
+                            <span class="detail-value" id="modalFileSize">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Obfuscation Options -->
+                <div class="obfuscation-options">
+                    <h3>Obfuscation Options</h3>
+
+                    <div class="form-group">
+                        <label>Java Version</label>
+                        <select id="javaVersion" class="form-select">
+                            <option value="8">Java 8 (1.8)</option>
+                            <option value="11">Java 11</option>
+                            <option value="17" selected>Java 17</option>
+                            <option value="21">Java 21</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="onlyMainPackage" checked>
+                            <label for="onlyMainPackage">Only Obfuscate Main Package</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="mainPackageGroup">
+                        <label>Main Package <span class="required">*</span></label>
+                        <input type="text" id="mainPackage" class="form-input" placeholder="com.example.yourProject">
+                        <p class="form-hint">Main Package is required when Only Obfuscate Main Package is selected.</p>
+                    </div>
+
+                    <h4>Transformers</h4>
+                    <div class="transformers-grid">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="stringEncryption" checked>
+                            <label for="stringEncryption">String Encryption</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="numberEncryption" checked>
+                            <label for="numberEncryption">Number Encryption</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="flowCondition" checked>
+                            <label for="flowCondition">Flow Condition</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="flowException" checked>
+                            <label for="flowException">Flow Exception</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="flowRange" checked>
+                            <label for="flowRange">Flow Range</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="flowSwitch" checked>
+                            <label for="flowSwitch">Flow Switch</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="cancelObfuscation">Cancel</button>
+                <button class="btn btn-primary" id="startObfuscation">Obfuscate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal" id="progressModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Obfuscation in Progress</h2>
+            </div>
+            <div class="modal-body">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-status" id="progressStatus">Initializing...</p>
+                </div>
+
+                <div class="log-container">
+                    <h4>Log</h4>
+                    <div class="log-output" id="logOutput">
+                        <span class="log-line">Starting obfuscation...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="progressFooter" style="display: none;">
+                <button class="btn btn-ghost" id="closeProgress">Close</button>
+                <button class="btn btn-primary" id="downloadResult">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Obfuscated File
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
